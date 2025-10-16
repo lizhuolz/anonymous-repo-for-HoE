@@ -1,0 +1,24 @@
+
+
+
+ConditionedMOEModel(PeftModel)
+
+ConditionedMOEModel.from_pretrained(model:PreTrainedModel,mola_weights) 
+-> PeftModel.from_pretrained(model:PreTrainedModel,mola_weights):
+        model = PeftModelForxxx(model:PreTrainedModel)
+        ConditionedMOEModel.init(model):
+                replace_all_router(model)
+        model.load_adapter(mola_weights)
+        return model
+
+ConditionedMOEModel.__init__(model:PeftModel)
+        model = replace_all_router_layers(model)
+
+
+get_peft_model(model: PreTrainedModel, peft_config)
+        return PeftModel(model, peft_config)
+
+
+
+
+ConditionedMOEModelwithValueHead(nn.Module)
